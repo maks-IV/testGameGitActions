@@ -5,6 +5,7 @@ jobs:
     name: Request manual activation file 🔑
     runs-on: ubuntu-latest
     steps:
+    - run: 'mkdir --parents results/artifacts'
     # Request manual activation file
     - name: Unity - Request Activation File
       uses: game-ci/unity-request-activation-file@v2.0-alpha-1
@@ -15,5 +16,5 @@ jobs:
     - name: Expose as artifact
       uses: actions/upload-artifact@v1
       with:
-        name: ${{ steps.getManualLicenseFile.outputs.filePath }}
-        path: ${{ steps.getManualLicenseFile.outputs.filePath }}
+        name: artifacts_from_ubuntu
+        path: results/artifacts/
